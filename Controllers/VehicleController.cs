@@ -1,0 +1,21 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using SampleWebApp.Models;
+
+namespace SampleWebApp.Controllers {
+    [Route("api/[controller]")]
+    [ApiController]
+    public class VehicleController : ControllerBase {
+
+        [HttpGet("test-drive")]
+        public IActionResult TestDrive() {
+            var myCar = new Car { Brand = "Toyota", Speed = 120 };
+            var myBike = new Bike { Brand = "Yamaha", Speed = 80 };
+
+            return Ok(new[] {
+            myCar.Start(),
+            myBike.Start()
+        });
+        }
+    }
+}
