@@ -7,15 +7,16 @@ namespace SampleWebApp.Controllers {
     [ApiController]
     public class VehicleController : ControllerBase {
 
-        [HttpGet("test-drive")]
+        [HttpGet("drive")]
         public IActionResult TestDrive() {
-            var myCar = new Car { Brand = "Toyota", Speed = 120 };
-            var myBike = new Bike { Brand = "Yamaha", Speed = 80 };
+
+            var myCar = new Car { Brand = "BMW", Speed = 120 };
+            var myBike = new Bike { Brand = "Duke", Speed = 80 };
 
             return Ok(new[] {
-            myCar.Start(),
-            myBike.Start()
-        });
+                myCar.Start(),
+                myBike.Start()
+            });
         }
     }
 }
