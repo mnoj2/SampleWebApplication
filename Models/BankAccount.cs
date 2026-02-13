@@ -5,10 +5,6 @@
         public BankAccount(decimal initialBalance) {
             _balance = initialBalance;
         }
-
-        public decimal GetBalance() {
-            return _balance;
-        }
             
         public void Deposit(decimal amount) {
             if(amount > 0)
@@ -21,6 +17,9 @@
                 return true;
             }
             return false;
+        }
+        public decimal GetBalance() {
+            return _balance;
         }
     }
 }

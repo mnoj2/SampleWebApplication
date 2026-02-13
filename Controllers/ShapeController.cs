@@ -6,20 +6,21 @@ namespace SampleWebApp.Controllers {
     [ApiController]
     public class ShapeController : ControllerBase {
 
-        [HttpGet("calculate-all")]
-        public IActionResult GetTotalArea() {
-            List<Shape> shapes = new List<Shape>
-            {
-            new Circle { Radius = 5 },
-            new Rectangle { Length = 10, Width = 5 }
+        List<Shape> shapes = new List<Shape> {
+                new Circle { Radius = 5 },
+                new Rectangle { Length = 10, Width = 5 }
         };
 
-            double totalArea = 0;
-            foreach(var shape in shapes) {
-                totalArea += shape.CalculateArea();
-            }
+        [HttpGet("calculate-circle")]
+        public IActionResult GetAreaCircle() {
 
-            return Ok(new { TotalArea = totalArea });
+            return Ok(new { TotalArea = shapes[0].CalculateArea() });
+        }
+
+        [HttpGet("calculate-rectangle")]
+        public IActionResult GetAreaRectangle() {
+
+            return Ok(new { TotalArea = shapes[1].CalculateArea() });
         }
     }
 }

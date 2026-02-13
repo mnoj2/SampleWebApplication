@@ -8,15 +8,10 @@ namespace SampleWebApp.Controllers {
     public class BankController : ControllerBase {
         private static BankAccount _account = new BankAccount(1000); 
 
-        [HttpGet("balance")]
-        public IActionResult CheckBalance() {
-            return Ok(new { Balance = _account.GetBalance() });
-        }
-
         [HttpPost("deposit")]
         public IActionResult Deposit([FromBody] decimal amount) {
             _account.Deposit(amount);
-            return Ok("Deposit successful.");
+            return Ok("Deposit successful");
         }
 
         [HttpPost("withdraw")]
@@ -25,7 +20,12 @@ namespace SampleWebApp.Controllers {
             if(!success)
                 return BadRequest("Insufficient funds or invalid amount.");
 
-            return Ok("Withdrawal successful.");
+            return Ok("Withdraw successful");
+        }
+
+        [HttpGet("balance")]
+        public IActionResult GetBalance() {
+            return Ok(new { Balance = _account.GetBalance() });
         }
     }
 }
