@@ -4,14 +4,20 @@
     }
 
     public class CreditCardPayment : IPayment {
-        public string ProcessPayment(decimal amount) => $"Processed ${amount} via Credit Card.";
+        public string ProcessPayment(decimal amount) {
+            return $"Processed Rs. {amount} - CreditCard";
+        }
     }
 
     public class UPIPayment : IPayment {
-        public string ProcessPayment(decimal amount) => $"Processed ${amount} via UPI.";
+        public string ProcessPayment(decimal amount) {
+            return $"Processed Rs. {amount} - UPI";
+        }
     }
 
     public class CashPayment : IPayment {
-        public string ProcessPayment(decimal amount) => $"Processed ${amount} via Cash.";
+        public string ProcessPayment(decimal amount) {
+            return $"Processed Rs. {amount} - Cash";
+        }
     }
 }

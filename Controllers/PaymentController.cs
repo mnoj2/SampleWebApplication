@@ -8,8 +8,11 @@ namespace SampleWebApp.Controllers {
     public class PaymentController : ControllerBase {
 
         [HttpPost("pay")]
-        public IActionResult Pay(string type, decimal amount) {
+        public IActionResult Pay([FromBody] PaymentDto request) {
+
             IPayment paymentProcessor;
+            string type = request.Type;
+            decimal amount = request.Amount;
 
             switch(type.ToLower()) {
                 case "credit":

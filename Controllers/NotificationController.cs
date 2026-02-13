@@ -6,16 +6,17 @@ namespace SampleWebApp.Controllers {
     [ApiController]
     public class NotificationController : ControllerBase {
 
-        [HttpPost("send-test")]
+        [HttpPost("send")]
         public IActionResult SendNotifications() {
+
             Notification email = new EmailNotification {
-                RecipientEmail = "user@example.com",
-                Message = "Welcome to our platform!"
+                RecipientEmail = "abc@gmail.com",
+                Message = "Welcome to abc"
             };
 
             Notification sms = new SMSNotification {
-                PhoneNumber = "123-456-7890",
-                Message = "Your OTP is 4432"
+                PhoneNumber = "7904976644",
+                Message = "Your OTP is 3544"
             };
 
             var results = new List<string> {
